@@ -10,6 +10,11 @@ class ParentAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+@admin.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+
 @admin.register(Category)
 class CatatgoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
@@ -59,7 +64,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'category')
     exclude = ['id']
     suit_classes = 'suit-tab suit-tab-products'
-    list_display = ['name', 'category', 'price']
+    list_display = ['name', 'category', 'price', 'collection']
     # list_filter = (('category', TreeRelatedFieldListFilter),)
     list_filter = ('category',)
     inlines = [ColorInline, PhotoInline, OfferInline]
@@ -76,6 +81,7 @@ class ProductAdmin(admin.ModelAdmin):
             'fields': [
                 'name',
                 'category',
+                'collection',
                 'price',
                 'recommended',
                 'description',

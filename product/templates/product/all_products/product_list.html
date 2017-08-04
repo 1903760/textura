@@ -1,0 +1,46 @@
+    <div class="categories_product">
+          <div class="categories_filter">
+            <form class="categories_filter_elements" action="" method="get">
+                <label for="id_product__price__gt">Цена:</label>
+                <div class="ui input">
+                  <input id="id_product__price__gt" name="product__price__gt" step="any" type="number" placeholder="От">
+                </div>
+                <div class="ui input">
+                  <input id="id_product__price__lt" name="product__price__lt" step="any" type="number" placeholder="До">
+                </div>
+              <select id="id_ordering" name="ordering" required="">
+                <option value="">--</option>
+                <option value="name">по алфавиту</option>
+                <option value="price">дешевые сверху</option>
+                <option value="-price">дорогие сверху</option>
+              </select>
+                <button class="categories_button ui blue basic button">Показать</button>
+            </form>
+          </div>
+        <div class="categories_product_flex_box">
+            {% for product in products %}
+        {% include 'product/product_item.html' %}
+        {% endfor %}
+        </div>
+
+        <div class="ui pagination menu">
+          {% if page_obj.has_previous %}
+          <a class="item" href="?page={{ pag }}{{ page_obj.previous_page_number }}">&laquo;</a>
+          {% else %}
+          <a class="item" href="">&laquo;</a>
+          {% endif %}
+          {% for pag in page_obj.paginator.page_range %}
+           {% if pag == page_obj.number %}
+           <a class="?page={{ pag }} item">{{ pag }}</a>
+           {% else %}
+           <a class="item" href="?page={{ pag }}">{{ pag }}</a>
+           {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <a class="item" href="?page={{ pag }}{{ page_obj.next_page_number }}">&raquo;</a>
+          {% else %}
+          <a class="item" href="">&raquo;</a>
+          {% endif %}
+        </div>
+    </div>
+

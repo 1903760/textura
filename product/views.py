@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from .models import *
 from .filters import *
 from django_filters.views import FilterView
@@ -33,35 +33,36 @@ class ProductDetailView(DetailView):
 
 class CategoryProductViews(FilterView):
     template_name = 'product/product_list.html'
-    model = Photo
+    model = Product
     paginate_by = 10
     filterset_class = ProductFilter
     context_object_name = 'products'
 
     def get_queryset(self):
-        qs = self.model.objects.filter(is_main=True, is_active=True)
+        qs = self.model.objects.prefetch_related('photo_set')
         if self.kwargs.get('motel_slug'):
-            parent = get_object_or_404(Parent, slug=self.kwargs['motel_slug'])
-            qs = qs.filter(product__category__parent=parent)
+            qs = qs.filter(category__parent__slug=self.kwargs['motel_slug'])
         if self.kwargs.get('cat_slug'):
-            cat = get_object_or_404(Category, slug=self.kwargs['cat_slug'])
-            qs = qs.filter(product__category=cat)
+            qs = qs.filter(category__slug=self.kwargs['cat_slug'])
         return qs
 
 
 class CollectionViews(FilterView):
-    template_name = 'product/product_list.html'
-    model = Photo
+    template_name = 'product/coolections.html'
+    model = Product
     paginate_by = 10
     filterset_class = ProductFilter
     context_object_name = 'products'
 
     def get_queryset(self):
-        qs = self.model.objects.filter(is_main=True, is_active=True)
+        qs = self.model.objects.prefetch_related('photo_set')
         if self.kwargs.get('collec_slug'):
-            collection = get_object_or_404(Collection, slug=self.kwargs['collec_slug'])
-            qs = qs.filter(product__collection=collection)
+            qs = qs.filter(collection__slug=self.kwargs['collec_slug'])
         if self.kwargs.get('cat_slug'):
-            cat = get_object_or_404(Category, slug=self.kwargs['cat_slug'])
-            qs = qs.filter(product__category=cat)
+            qs = qs.filter(category__slug=self.kwargs['cat_slug'])
         return qs
+
+
+def product_list(request):
+    filter = ProductFilter(request.GET, queryset=Product.objects.all())
+    return render(request, 'product/rrr.html', {'filter': filter})

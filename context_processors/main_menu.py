@@ -1,4 +1,4 @@
-from product.models import Parent
+from product.models import Parent, Collection
 from django import template
 register = template.Library()
 
@@ -10,3 +10,10 @@ def menu(request):
         "nodes": nodes,
     }
 
+
+@register.inclusion_tag('includes/header.html')
+def collection(request):
+    collect = Collection.objects.all()
+    return {
+        "collect": collect,
+    }

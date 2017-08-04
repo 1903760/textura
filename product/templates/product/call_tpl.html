@@ -1,6 +1,6 @@
  <div class="categories_nav">
       <div class="ui styled accordion">
-        <a href="{% url 'all:all_products' %}">
+        <a href="{% url 'all:all_collection' %}">
           <div class="title">
               Все
           </div>
@@ -13,7 +13,7 @@
         <div class="content categories_nav_list">
           <ul>
           {% for cat in node.category_set.all %}
-              <li><a href="{% url 'all:all_products' %}{{ cat.parent.slug }}/{{ cat.slug }}" method="get">{{ cat.name }}</a></li>
+              <li><a href="{% url 'all:all_collection' %}{{ cat.parent.slug }}/{{ cat.slug }}" method="get">{{ cat.name }}</a></li>
           {% endfor %}
           </ul>
         </div>

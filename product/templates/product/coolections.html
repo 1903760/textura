@@ -4,10 +4,9 @@
 {% block content %}
 <section class="wrapper categories">
   <div class="frame categories_flex_block">
-{% load categorys %}
-    {% categorys %}
-    {% include 'product/all_products/product_list.html' %}
-
+{% load collection %}
+    {% collections %}
+      {% include 'product/all_products/product_list.html' %}
   </div>
 </section>
 {% endblock %}

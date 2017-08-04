@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from colorful.fields import RGBColorField
 # from mptt.models import MPTTModel, TreeForeignKey
 # import mptt
+from django.utils.functional import cached_property
 from easy_thumbnails.fields import ThumbnailerImageField
 # Create your models here.
 
@@ -68,7 +69,6 @@ class Product(models.Model):
     created = models.DateTimeField('Дата создания', auto_now_add=True)
     updated = models.DateTimeField('Дата обновления', auto_now=True)
 
-
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
@@ -76,6 +76,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    @cached_property
+    def photo(self):
+        return self.photo_set.get(is_active=True, is_main=True)
 
 
 class Color(models.Model):

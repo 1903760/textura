@@ -1,9 +1,9 @@
 {% load thumbnail %}
 <figure class="recommend_block">
- <figcaption class="recommend_title"><a href="">{{ product_image.product.name }}</a></figcaption>
-    <a href="{% url 'all:product' product_image.product.pk %}">
-        <img class="recommend_image" src="{{ product_image.image|thumbnail_url:'avatar' }}" alt="">
+ <figcaption class="recommend_title"><a href="">{{ product.name }}</a></figcaption>
+    <a href="{% url 'all:product' product.pk %}">
+        <img class="recommend_image" src="{{ product.photo.image|thumbnail_url:'avatar1' }}" alt="">
     </a>
-    <span class="recommend_description">{{ product_image.product.composition|truncatechars_html:20 }}</span>
-    <span class="recommend_price">{{ product_image.product.price }} ₸</span>
+    <span class="recommend_description">{{ product.composition|truncatechars_html:20 }}</span>
+    <span class="recommend_price">{{ product.price }} ₸</span>
 </figure>
