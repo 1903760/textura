@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% load categorys %}
+<div>
+
+
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in filter.qs %}
+        {{ obj.product.name }} - тг{{ obj.product.price }}<br />
+    {% endfor %}
+
+</div>
+
+{% endblock %}

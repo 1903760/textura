@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% load humanize %}
+{% block application2%}
+	{% for photo in photos %}
+	{% if  forloop.first %}
+<h1 class="text-center">{{ photo.album.title }}</h1>
+<h6 class="text-center">{{ photo.album.date|date:"d E Y" }}</h6>
+<div class="masonry">
+	{% endif %}
+	<div class="item">
+		<img src="{{ photo.image.url }}" style="width:100%" onclick="openModal();currentSlide({{ forloop.counter }})" class="hover-shadow cursor">
+	</div>
+	{% endfor %}
+</div>
+<div id="myModal" class="modal">
+	<span class="close cursor" onclick="closeModal()">&times;</span>
+	<div class="modal-content">
+		<div class="col-xs-12">
+   {% for photo in photos %}
+			<div class="mySlides">
+				<div class="numbertext"> {{ forloop.counter }}/ {{ photos.count }}</div>
+				<img src="{{ photo.image.url }}" style="width:100%">
+			</div>
+   {% endfor %}
+			<!-- Контроллеры -->
+			<a class="left carousel-control" href="#carousel-bouquet-generic" onclick="plusSlides(-1)" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Предыдущий</span>
+			</a>
+			<a class="right carousel-control" href="#carousel-bouquet-generic" onclick="plusSlides(1)" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Следующий</span>
+			</a>
+		</div>
+		<div class="caption-container">
+			<p id="caption"></p>
+		</div>
+		<div class="masonry">
+    {% for photo in photos %}
+    		<div class="item">
+				<img class="demo cursor" src="{{ photo.image.url }}" style="width:100%" onclick="currentSlide({{ forloop.counter }})" alt="{{ photo.album.title }} № {{ forloop.counter }}">
+			</div>
+     {% endfor %}
+    	</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{
+  "name": "mygulp",
+  "description": "My GULP",
+  "main": "index.js",
+  "authors": [
+    "Dmitriy Bolshacov"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jquery": "^1.8.2",
+    "font-awesome": "^4.7.0",
+    "semantic": "semantic-ui#^2.2.10"
+  },
+  "private": true,
+  "devDependencies": {}
+}

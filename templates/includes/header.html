@@ -1,0 +1,40 @@
+
+    <header class="wrapper">
+      <div class="frame">
+        <div class="ui secondary  menu flex_header_menu">
+          <a class="active item" href="{% url 'all:products_views' %}">
+            Textura.kz
+          </a>
+          <div class="item ui dropdown">
+            <input type="hidden" name="gender">
+            <div class="text">Категории</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                {% for node in nodes %}
+              <div class="item">
+                <span class="text"><a href="{% url 'all:category_get' node.slug %}">{{ node.name }}</a></span>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+          <a class="item" href="{% url 'all:all_products' %}">
+            Все товары
+          </a>
+          <a href="{% url 'contacts' %}" class="item">
+            Контакты
+          </a>
+          <div class="right menu flex_header_search">
+            <div class="ui search">
+              <form  action="{% url 'all:all_products' %}" name="" method="get" class="ui icon input">
+                <input class="prompt" type="text" placeholder="Поиск..." id="id_product__name" name="product__name">
+                <i class="search icon"></i>
+              </form>
+              <div class="results"></div>
+            </div>
+            <a class="ui item">
+              <i class="circular blue inverted mobile icon"></i>
+              +7 778 861 8660
+            </a>
+          </div>
+        </div>
+    </header>

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Textura</title>
+    <link href="{% static 'css/libs.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+<div class="page">
+  {% include 'includes/header.html' %}
+  <section class="wrapper">
+    <div class="frame contacts">
+      <div class="contact_block">
+        <ul class="contact_list">
+          <li><h2>Астана</h2></li>
+          <li class="contact_list_group">
+            <i class="con_map map outline icon"></i>
+            <span>
+              <span>Трц mega silk way, второй этаж, южная сторона , бутик 2-72. Вход "B".</span>
+              <!-- <br/>
+              <span>ул. Абая 12 д.4</span> -->
+            </span>
+          </li>
+          <li class="contact_list_group">
+            <i class="con_mob large mobile icon"></i>
+            <span>
+              <a href="tel:+7701845623">+7 778 861 8660</a>
+              <!-- <br/>
+              <a href="tel:+7701845623">+7701 845 623</a> -->
+            </span>
+          </li>
+          <li><a href="mail:name@mail.com"><i class="mail icon"></i>name@mail.com</a></li>
+        </ul>
+        <div class="contact_map">
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae618e1b20c6c6f39177e0a55002b1aae394337e84640627494113218d6911d86&amp;width=100%25&amp;height=420&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+      </div>
+
+      <div class="contact_block">
+        <ul class="contact_list">
+          <li>  <h2>Чимкент</h2></li>
+          <li class="contact_list_group">
+            <i class="con_map map outline icon"></i>
+            <span>
+              <span>Трц "Shimkent Plaza", ул Аль Фараби, 3/1, бутик #80</span>
+              <!-- <br/>
+              <span>ул. Абая 12 д4</span> -->
+            </span>
+          </li>
+          <li class="contact_list_group">
+            <i class="con_mob large mobile icon"></i>
+            <span>
+              <a href="tel:+7701845623">+7 778 861 8660</a>
+              <!-- <br/>
+              <a href="tel:+7701845623">+7701 845 623</a> -->
+            </span>
+          </li>
+          <li><a href="mail:name@mail.com"><i class="mail icon"></i>name@mail.com</a></li>
+        </ul>
+        <div class="contact_map">
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A673683881d56c079e875e6c22bbccd3cdf7fa2ed09461dd2891ceea0ee63baf5&amp;width=100%25&amp;height=420&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+      </div>
+    </section>
+  {% include 'includes/footer.html' %}
+</div>
+</body>
+<script src="{% static 'js/libs.min.js' %}"></script>
+<script src="{% static 'js/common.min.js' %}"></script>
+</html>

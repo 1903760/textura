@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+{% load thumbnail %}
+
+<section class="wrapper categories">
+  <div class="frame categories_flex_block">
+    {% load categorys %}
+     {% categorys %}
+  <div class="product">
+          <div class="product_gallery">
+              {% for photo in photos %}
+              {% if forloop.first %}
+            <img class="my-foto-container" src="{{ photo.image|thumbnail_url:'avatar1' }}"
+                 data-large="{{ photo.image|thumbnail_url:'avatar1' }}" title="{{ forloop.counter }}">
+            <div class="gallery_flex_block">
+            {% endif %}
+              <img class="my-foto" src="{{ photo.image|thumbnail_url:'avatar1' }}"
+                   data-large="{{ photo.image|thumbnail_url:'avatar1' }}" title="{{ forloop.counter }}">
+              {% endfor %}
+            </div>
+          </div>
+          <div class="product_characteristics">
+              <h3 class="product_title">{{ product.name }}</h3>
+              <ul class="product_list">
+                <li>Цена: <span>{{ product.price }} ₸</span></li>
+                <li>Описание:<br/> <span class="product_description" >{{ product.description }}</span></li>
+                <li>Состав: <span>{{ product.composition }}</span></li>
+                <li class="product_sizes">
+                  Размеры:
+                  <ul class="product_size">
+                  {% for offer in offers %}
+                    {% if offer.type_choices %}
+                     <li>{{ offer.type_choices }}</li>
+                    {% elif offer.size %}
+                     <li>{{ offer.size }}</li>
+                    {% elif offer.width or offer.height %}
+                     <li>{{ offer.width }}x{{ offer.height }} см</li>
+                    {% else %}
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+                </li>
+                <li class="product_colors">
+                  Цвета:
+                  <ul class="product_color">
+                   {% for color in colors %}
+                    <li class="product_color_block" style="background-color: {{ color.color }};"></li>
+                   {% endfor %}
+                  </ul>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

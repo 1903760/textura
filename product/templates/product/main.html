@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+    <section class="wrapper">
+      <div class="frame swiper_block">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+              {% for slider in sliders %}
+                  <a  class="swiper-slide" href="{{ slider.slug }}"><div name="{{ slider.name }}"  style="width: 100%; height: 420px; background-image: url('{{ slider.image.url }}');"></div></a>
+              {% endfor %}
+          </div>
+            <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrapper">
+      <div class="frame baners">
+        <img class="baners_image baners_image_1" src="media/banner/photos/bannerCHILLOUT.jpg" alt="baner-1">
+        <img class="baners_image baners_image_2" src="media/banner/photos/mighome2_1.jpg" alt="baner-3">
+        <img class="baners_image baners_image_3" src="media/banner/photos/bPETITESQUERRA.jpg" alt="baner-2">
+          <!-- {% for banner in banners %}
+        <a href="{{ banner.slug }}"><img class="baners_image baners_image_1" src="{{ banner.image.url }}" alt="{{ forloop.counter }}"></a>
+            {% endfor %} -->
+       </div>
+    </section>
+    <section class="wrapper">
+      <div class="frame recommend">
+        <h3 class="title_section">Рекомендуем</h3>
+        <div class="recommend_flex_block">
+
+         {% for product in products %}
+            <figure class="recommend_block">
+              <figcaption class="recommend_title"><a href="{% url 'all:product' product.product.pk %}">{{ product.product.name }}</a></figcaption>
+              <a href="{% url 'all:product' product.product.pk %}"><img class="recommend_image" src="{{ product.image|thumbnail_url:'avatar' }}" alt=""></a>
+              <span class="recommend_description">{{ product.product.composition }}</span>
+              <span class="recommend_price">{{ product.product.price }} ₸</span>
+            </figure>
+        {% endfor %}
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}
