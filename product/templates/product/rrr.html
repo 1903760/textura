@@ -11,7 +11,7 @@
         <input type="submit" />
     </form>
     {% for obj in filter.qs %}
-        {{ obj.product.name }} - тг{{ obj.product.price }}<br />
+        {{ obj.name }} - тг{{ obj.price }}<br />
     {% endfor %}
 
 </div>
