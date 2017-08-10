@@ -12,7 +12,7 @@
             <div class="menu">
                 {% for node in nodes %}
               <div class="item">
-                <span class="text"><a href="{% url 'all:category_get' node.slug %}">{{ node.name }}</a></span>
+                <span class="text span_links"><a href="{% url 'all:category_get' node.slug %}">{{ node.name }}</a></span>
               </div>
                 {% endfor %}
             </div>
