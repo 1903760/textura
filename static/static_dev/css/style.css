@@ -504,6 +504,7 @@ footer {
   font-weight: 600;
   padding: 15px;
   color: #777777;
+  text-transform: uppercase;
 }
 
 .recommend_image {
