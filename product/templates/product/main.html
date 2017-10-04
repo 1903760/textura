@@ -2,20 +2,47 @@
 {% load staticfiles %}
 {% load thumbnail %}
 {% block content %}
+    <style>
+    .recommend a[href="//elfsight.com/"]
+    {
+        display: none !important;
+    }
+    .thumb-wrap {
+      position: relative;
+      padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+{#      padding-top: 30px;#}
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+    }
+    .thumb-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    </style>
+
+
     <section class="wrapper">
       <div class="frame swiper_block">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-              {% for slider in sliders %}
-                  <a  class="swiper-slide" href="{{ slider.slug }}"><div name="{{ slider.name }}"  style="width: 100%; height: 420px; background-image: url('{{ slider.image.url }}');"></div></a>
-              {% endfor %}
+          <div class="thumb-wrap">
+
+              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IvkOMuTMNpk?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
           </div>
-            <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-            <!-- Add Arrows -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
+              {#        <div class="swiper-container">#}
+{#          <div class="swiper-wrapper">#}
+{#              {% for slider in sliders %}#}
+{#                  <a  class="swiper-slide" href="{{ slider.slug }}"><div name="{{ slider.name }}"  style="width: 100%; height: 420px; background-image: url('{{ slider.image.url }}');"></div></a>#}
+{#              {% endfor %}#}
+{#          </div>#}
+{#            <!-- Add Pagination -->#}
+{#          <div class="swiper-pagination"></div>#}
+{#            <!-- Add Arrows -->#}
+{#          <div class="swiper-button-next"></div>#}
+{#          <div class="swiper-button-prev"></div>#}
+{#        </div>#}
       </div>
     </section>
 
@@ -43,8 +70,8 @@
             </figure>
         {% endfor %}
         </div>
+        <div class="elfsight-app-7c338f36-a475-4575-bb22-13b35f7c602b"></div>
       </div>
     </section>
-
 
 {% endblock %}
