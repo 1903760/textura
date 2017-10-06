@@ -67,7 +67,7 @@
               <a href="{% url 'all:product' product.product.pk %}"><img class="recommend_image" src="{{ product.image|thumbnail_url:'avatar' }}" alt=""></a>
               <span class="recommend_description">{{ product.product.composition }}</span>
 {#              <span class="recommend_price">{{ product.product.price }} ₸</span>#}
-            {% if product.product.discount_price == 0 %}
+            {% if product.product.discount == 0 %}
              <span class="recommend_price">{{ product.product.price }} ₸</span>
             {% else %}
              <span class="recommend_price old_price">{{ product.product.price }} ₸</span>

@@ -6,7 +6,7 @@
     </a>
     <span class="recommend_description">{{ product.composition|truncatechars_html:20 }}</span>
 {#    <span class="recommend_price old_price">{{ product.price }} ₸</span>#}
-    {% if product.discount_price == 0 %}
+    {% if product.discount == 0 %}
         <span class="recommend_price">{{ product.price }} ₸</span>
     {% else %}
         <span class="recommend_price old_price">{{ product.price }} ₸</span>
