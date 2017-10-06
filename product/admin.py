@@ -83,6 +83,8 @@ class ProductAdmin(admin.ModelAdmin):
                 'category',
                 'collection',
                 'price',
+                # 'discount_price',
+                'discount',
                 'recommended',
                 'description',
                 'composition',
@@ -108,6 +110,9 @@ class ProductAdmin(admin.ModelAdmin):
             return {'class': 'text-center'}
         elif column == 'name' and obj.is_active == -1:
             return {'class': 'text-error'}
+
+    def in_discount_price(self):
+        return Product
 
 
 

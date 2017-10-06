@@ -51,9 +51,20 @@ table {
   outline: none;
 }
 
+.span_links {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.span_links a {
+  width: 100%;
+  display: block;
+}
+
 body {
   height: 100% !important;
-  /*background: url("img/TexturaBG.jpg") no-repeat;*/
+  background: url("img/TexturaBG.jpg") no-repeat;
   background-size: inherit;
 }
 
@@ -473,6 +484,7 @@ footer {
 }
 
 .recommend_block {
+  position: relative;
   max-width: 252px;
   min-width: 170px;
   display: -webkit-box;
@@ -499,6 +511,53 @@ footer {
           border-radius: 5px;
 }
 
+.old_price {
+  color: #000 !important;
+  position: relative;
+}
+
+.old_price::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #d2000c;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.new_price {
+  color: #9A010A !important;
+}
+
+.discount {
+  width: 45px;
+  height: 45px;
+  background: #ea000e;
+  position: absolute;
+  top: 30px;
+  right: -15px;
+  color: #fff !important;
+  -webkit-border-radius: 120px;
+          border-radius: 120px;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .recommend_title {
   font-size: 19px;
   font-weight: 600;
@@ -523,7 +582,7 @@ footer {
   font-size: 17px;
   font-weight: 600;
   padding: 5px;
-  color: #9A010A;
+  color: #000;
 }
 
 @media (max-width: 1068px) and (min-width: 800px) {
@@ -1322,9 +1381,4 @@ footer {
   }
 }
 
-.span_links{
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 /*# sourceMappingURL=maps/style.css.map */

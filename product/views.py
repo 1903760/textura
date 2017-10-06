@@ -63,6 +63,22 @@ class CollectionViews(FilterView):
         return qs
 
 
+class DiscountProductViews(FilterView):
+    template_name = 'product/product_list.html'
+    model = Product
+    paginate_by = 10
+    filterset_class = ProductFilter
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        qs = self.model.objects.filter(discount=True).prefetch_related('photo_set')
+        if self.kwargs.get('motel_slug'):
+            qs = qs.filter(category__parent__slug=self.kwargs['motel_slug'])
+        if self.kwargs.get('cat_slug'):
+            qs = qs.filter(category__slug=self.kwargs['cat_slug'])
+        return qs
+
+
 def product_list(request):
     filter = ProductFilter(request.GET, queryset=Product.objects.all())
     return render(request, 'product/rrr.html', {'filter': filter})

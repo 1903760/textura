@@ -61,6 +61,8 @@ class Product(models.Model):
     collection = models.ForeignKey(Collection, blank=True, null=True, verbose_name='Коллекция')
     # category = TreeForeignKey(Category, blank=True, null=True, related_name='cat', verbose_name='Категория')
     price = models.IntegerField(verbose_name='цена в ₸', default=0)
+    # discount_price = models.IntegerField(verbose_name='цена со скидкой в ₸', default=0)
+    discount = models.IntegerField(verbose_name='скидка в %', default=0)
     recommended = models.BooleanField(verbose_name='Рекомендуемый товар', default=False)
     description = models.TextField(verbose_name='описание', help_text='Напишите описание товара', blank=True,
                                    default=None)
@@ -73,6 +75,11 @@ class Product(models.Model):
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
         ordering = ['created']
+
+    @property
+    def discount_price(self):
+        discount_price = int(self.price * (100 - self.discount) / 100)
+        return discount_price
 
     def __str__(self):
         return self.name

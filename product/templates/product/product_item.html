@@ -5,5 +5,13 @@
         <img class="recommend_image" src="{{ product.photo.image|thumbnail_url:'avatar1' }}" alt="">
     </a>
     <span class="recommend_description">{{ product.composition|truncatechars_html:20 }}</span>
-    <span class="recommend_price">{{ product.price }} ₸</span>
+{#    <span class="recommend_price old_price">{{ product.price }} ₸</span>#}
+    {% if product.discount_price == 0 %}
+        <span class="recommend_price">{{ product.price }} ₸</span>
+    {% else %}
+        <span class="recommend_price old_price">{{ product.price }} ₸</span>
+        <span class="recommend_price new_price">{{ product.discount_price }} ₸</span>
+        <span class="recommend_price discount">{{ product.discount }}%</span>
+    {% endif %}
+
 </figure>
