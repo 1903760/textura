@@ -52,7 +52,7 @@
 {#        <img class="baners_image baners_image_2" src="media/banner/photos/mighome2_1.jpg" alt="baner-3">#}
 {#        <img class="baners_image baners_image_3" src="media/banner/photos/bPETITESQUERRA.jpg" alt="baner-2">#}
          {% for banner in banners %}
-        <a href="{{ banner.slug }}"><img class="baners_image baners_image_1" src="{{ banner.image.url }}" alt="{{ forloop.counter }}"></a>
+        <a href="{{ banner.slug }}" class="baners_image baners_image_{{ forloop.counter }}"><img class="" src="{{ banner.image.url }}" alt="{{ forloop.counter }}"></a>
             {% endfor %}
        </div>
     </section>

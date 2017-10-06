@@ -2,6 +2,7 @@ from django import forms
 from .models import *
 from .widgets import *
 
+
 # форма загрузки фото в админку
 class PhotoAdminForm(forms.ModelForm):
 

@@ -256,7 +256,7 @@ footer {
   }
 }
 
-@media (max-width: 1354px) and (min-width: 1068px) {
+@media (max-width: 1366px) and (min-width: 1068px) {
   .flex_header_menu {
     margin: 0 0 30px 0;
   }
@@ -332,6 +332,7 @@ footer {
 
 .baners_image {
   margin: 10px 5px;
+  height: 350px;
 }
 
 .baners_image_1 {
@@ -353,6 +354,11 @@ footer {
   -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
+}
+
+.baners_image img {
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 567px) and (min-width: 0px) {
@@ -430,7 +436,7 @@ footer {
   }
 }
 
-@media (max-width: 1354px) and (min-width: 1068px) {
+@media (max-width: 1366px) and (min-width: 1068px) {
   .baners_image {
     width: 25%;
     margin: 10px 5px;
@@ -1194,7 +1200,7 @@ footer {
   }
 }
 
-@media (max-width: 1354px) and (min-width: 1068px) {
+@media (max-width: 1366px) and (min-width: 1068px) {
   .product {
     margin: 0;
   }

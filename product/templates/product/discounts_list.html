@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+<section class="wrapper categories">
+  <div class="frame categories_flex_block">
+{% load discounts %}
+    {% discounts %}
+    {% include 'product/all_products/product_list.html' %}
+
+  </div>
+</section>
+{% endblock %}

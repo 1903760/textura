@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+ <div class="categories_nav">
+  <div class="ui styled accordion">
+    <a href="{% url 'all:all_discounts' %}">
+      <div class="title">
+          Все
+      </div>
+    </a>
+ {% for node in nodes %}
+  <div class="title">
+    <i class="dropdown icon"></i>
+      {{ node.name }}
+  </div>
+    <div class="content categories_nav_list">
+      <ul>
+      {% for cat in node.category_set.all %}
+          <li><a href="{% url 'all:all_discounts' %}{{ cat.parent.slug }}/{{ cat.slug }}" method="get">{{ cat.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+  </div>
+</div>

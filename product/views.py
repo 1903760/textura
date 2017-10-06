@@ -64,7 +64,7 @@ class CollectionViews(FilterView):
 
 
 class DiscountProductViews(FilterView):
-    template_name = 'product/product_list.html'
+    template_name = 'product/discounts_list.html'
     model = Product
     paginate_by = 10
     filterset_class = ProductFilter

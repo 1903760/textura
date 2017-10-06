@@ -76,7 +76,7 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
         ordering = ['created']
 
-    @property
+    @cached_property
     def discount_price(self):
         discount_price = int(self.price * (100 - self.discount) / 100)
         return discount_price
