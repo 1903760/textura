@@ -64,8 +64,6 @@ table {
 
 body {
   height: 100% !important;
-  background: url("img/TexturaBG.jpg") no-repeat;
-  background-size: inherit;
 }
 
 .page {
