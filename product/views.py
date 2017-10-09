@@ -71,7 +71,7 @@ class DiscountProductViews(FilterView):
     context_object_name = 'products'
 
     def get_queryset(self):
-        qs = self.model.objects.filter(discount=True).prefetch_related('photo_set')
+        qs = self.model.objects.prefetch_related('photo_set')
         if self.kwargs.get('motel_slug'):
             qs = qs.filter(category__parent__slug=self.kwargs['motel_slug'])
         if self.kwargs.get('cat_slug'):
