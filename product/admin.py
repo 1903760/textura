@@ -64,7 +64,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'category')
     exclude = ['id']
     suit_classes = 'suit-tab suit-tab-products'
-    list_display = ['name', 'category', 'price', 'collection']
+    list_display = ['name', 'category', 'price', 'discount_price', 'collection']
     # list_filter = (('category', TreeRelatedFieldListFilter),)
     list_filter = ('category',)
     inlines = [ColorInline, PhotoInline, OfferInline]
